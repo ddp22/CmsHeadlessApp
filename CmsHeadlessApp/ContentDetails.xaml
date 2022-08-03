@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CmsHeadlessApp.ContentDetails">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="15"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Button
+            x:Name="ReturnButton"
+            Text="Contents"
+            Clicked="OnReturnClicked"
+            HorizontalOptions="End" />
+
+            <Label x:Name="TitleLabel" Text="" FontSize="40" HorizontalTextAlignment="Center"/>
+            <Label x:Name="DescriptionText" Text="Description: " FontSize="Medium"/>
+            <Label x:Name="DescriptionLabel" Text="" FontSize="Default"/>
+            <Label x:Name="TextText" Text="Text: " FontSize="Medium"/>
+            <Label x:Name="TextLabel" Text="" FontSize="Default" />
+            <Label x:Name="InsertionDateText" Text="Insertion Date: " FontSize="Medium"/>
+            <Label x:Name="InsertionDateLabel" Text="" FontSize="Default" />
+            <Label x:Name="LastEditText" Text="Last Edit: " FontSize="Medium"/>
+            <Label x:Name="LastEditLabel" Text="" FontSize="Default" />
+            <Label x:Name="PubblicationDateText" Text="Pubblication Date: " FontSize="Medium"/>
+            <Label x:Name="PubblicationDateLabel" Text="" FontSize="Default" />
+            <Label x:Name="MediaText" Text="Image: " FontSize="Medium"/>
+            <Image x:Name="MediaLabel" Source="" SemanticProperties.Description="Image not Available!" HeightRequest="200" HorizontalOptions="Start"/>
+            <Label x:Name="EmailText" Text="Author: " FontSize="Medium"/>
+            <Label x:Name="EmailLabel" Text="" FontSize="Default" />
+        </VerticalStackLayout>
+    </ScrollView>
+    
+        
+        <!--<ScrollView>
+            <CollectionView ItemsSource="{Binding ContentList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:ContentList">
+                    <StackLayout Padding="10" >
+                        <Label Text="{Binding Title}" FontSize="40" HorizontalTextAlignment="Center"/>
+                        <Label Text="Description: " FontSize="Medium"/>
+                        <Label Text="{Binding Description}" FontSize="Default"/>
+                        <Label Text="Text: " FontSize="Medium"/>
+                        <Label Text="{Binding Text}" FontSize="Default" />
+                        <Label Text="Insertion Date: " FontSize="Medium"/>
+                        <Label Text="{Binding InsertionDate}" FontSize="Default" />
+                        <Label Text="Last Edit: " FontSize="Medium"/>
+                        <Label Text="{Binding LastEdit}" FontSize="Default" />
+                        <Label Text="Pubblication Date: " FontSize="Medium"/>
+                        <Label Text="{Binding PubblicationDate}" FontSize="Default" />
+                        <Image Source="{Binding Media}" SemanticProperties.Description="Image not Available!" HeightRequest="200" HorizontalOptions="Center"/>
+                        <Label Text="Author: " FontSize="Medium"/>
+                        <Label Text="{Binding EmailUser}" FontSize="Default" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </ScrollView>-->
+        
+    
+
+</ContentPage>
