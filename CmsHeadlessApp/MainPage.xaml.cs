@@ -62,8 +62,12 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private async void OnLoginClicked(object sender, EventArgs e)
+    private async void OnLogoutClicked(object sender, EventArgs e)
     {
+        LoginPage.latitude = 0;
+        LoginPage.longitude = 0;
+        LoginPage.mail = null;
+        SecureStorage.Default.Remove("JwtToken");
         await Navigation.PushModalAsync(new LoginPage());
     }
     /*

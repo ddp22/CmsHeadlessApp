@@ -26,9 +26,9 @@
         <StackLayout Padding="10">
 
             <Button
-                x:Name="loginButton"
-                Text="Login"
-                Clicked="OnLoginClicked"
+                x:Name="logoutButton"
+                Text="Logout"
+                Clicked="OnLogoutClicked"
                 HorizontalOptions="End" />
             <Label Text="Contents" FontSize="Title"/>
         </StackLayout>
