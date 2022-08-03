@@ -30,6 +30,11 @@
                 Text="Logout"
                 Clicked="OnLogoutClicked"
                 HorizontalOptions="End" />
+            <Button
+                x:Name="OpenCameraButton"
+                Text="Camera"
+                Clicked="OnCameraClicked"
+                HorizontalOptions="End" />
             <Label Text="Contents" FontSize="Title"/>
         </StackLayout>
 

@@ -6,17 +6,17 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
-		<RootNamespace>CmsHeadlessApp</RootNamespace>
+		<RootNamespace>MediaPickerIssue</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>CmsHeadlessApp</ApplicationTitle>
+		<ApplicationTitle>MediaPickerIssue</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.cmsheadlessapp</ApplicationId>
-		<ApplicationIdGuid>2997DEF1-1938-47E5-BA76-616FBA67E890</ApplicationIdGuid>
+		<ApplicationId>com.companyname.mediapickerissue</ApplicationId>
+		<ApplicationIdGuid>09d7ac9c-477a-4d6a-856a-4483afdb0d06</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -46,39 +46,6 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="BarcodeQRCodeSDK" Version="2.1.0" />
-	  <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.7" />
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
-	  <PackageReference Include="Xamarin.GooglePlayServices.Location">
-	    <Version>119.0.1.1</Version>
-	  </PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="LoginPage.xaml.cs">
-	    <DependentUpon>LoginPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="ContentDetails.xaml.cs">
-	    <DependentUpon>ContentDetails.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="LoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="ContentDetails.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="QRPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
