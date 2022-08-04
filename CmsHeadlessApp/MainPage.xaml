@@ -30,11 +30,12 @@
                 Text="Logout"
                 Clicked="OnLogoutClicked"
                 HorizontalOptions="End" />
-            <Button
-                x:Name="OpenCameraButton"
-                Text="Camera"
-                Clicked="OnCameraClicked"
-                HorizontalOptions="End" />
+            <Button 
+                Text="Barcode/QR Code Reader"
+                FontAttributes="Bold"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnReaderClicked"
+                HorizontalOptions="Center" />
             <Label Text="Contents" FontSize="Title"/>
         </StackLayout>
 

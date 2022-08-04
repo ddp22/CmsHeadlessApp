@@ -49,9 +49,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="AForge.Video" Version="2.2.5" />
+	  <PackageReference Include="AForge.Video.DirectShow" Version="2.2.5" />
 	  <PackageReference Include="BarcodeQRCodeSDK" Version="2.1.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.7" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="QRCodeDecoderLibrary" Version="2.0.1" />
+	  <PackageReference Include="ZXing.Net" Version="0.16.8" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
@@ -67,6 +71,9 @@
 	  <Compile Update="ContentDetails.xaml.cs">
 	    <DependentUpon>ContentDetails.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="ReaderPage.xaml.cs">
+	    <DependentUpon>ReaderPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,7 +83,7 @@
 	  <MauiXaml Update="ContentDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="QRPage.xaml">
+	  <MauiXaml Update="ReaderPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

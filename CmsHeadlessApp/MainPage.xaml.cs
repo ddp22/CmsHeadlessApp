@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json.Serialization;
+using AForge.Video;
+using AForge.Video.DirectShow;
 //using static Android.Gms.Common.Apis.Api;
 
 namespace CmsHeadlessApp;
@@ -71,23 +73,29 @@ public partial class MainPage : ContentPage
         await Navigation.PushModalAsync(new LoginPage());
     }
 
-    private async void OnCameraClicked(object sender, EventArgs e)
+    private async void OnReaderClicked(object sender, EventArgs e)
     {
-        if (MediaPicker.Default.IsCaptureSupported)
-        {
-            FileResult photo = await MediaPicker.CapturePhotoAsync();
+        //FilterInfoCollection filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+        //foreach(FilterInfo filterInfo in filterInfoCollection)
+        //{
+        //    cboDevice.Items.Add(filterInfo.Name);
+        //}
+        //cboDevice.SelectIndex = 0;
 
-            if (photo != null)
-            {
-                // save the file into local storage
-                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+        //VideoCaptureDevice captureDevice = new VideoCaptureDevice(filterInfoCollection[cboDevice.SelectIndex].MonikerString);
+        //captureDevice.Start();
 
-                using Stream sourceStream = await photo.OpenReadAsync();
-                using FileStream localFileStream = File.OpenWrite(localFilePath);
+        //if (captureDevice.IsRunning)
+        //{
+        //    captureDevice.Stop();
+        //}
 
-                await sourceStream.CopyToAsync(localFileStream);
-            }
-        }
+        //BarcodeReader barcodeReader = new BarcodeReader();
+        //FileResult result = barcodeReader.Decode();
+        //if(result != null)
+        //{
+        //    txtQRCode.Text = result.ToString();
+        //}
     }
     /*
     public async void GoToDetails()
