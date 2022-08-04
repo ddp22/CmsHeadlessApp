@@ -75,27 +75,21 @@ public partial class MainPage : ContentPage
 
     private async void OnReaderClicked(object sender, EventArgs e)
     {
-        //FilterInfoCollection filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-        //foreach(FilterInfo filterInfo in filterInfoCollection)
-        //{
-        //    cboDevice.Items.Add(filterInfo.Name);
-        //}
-        //cboDevice.SelectIndex = 0;
+        if (MediaPicker.Default.IsCaptureSupported)
+        {
+            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
 
-        //VideoCaptureDevice captureDevice = new VideoCaptureDevice(filterInfoCollection[cboDevice.SelectIndex].MonikerString);
-        //captureDevice.Start();
+            if (photo != null)
+            {
+                // save the file into local storage
+                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
 
-        //if (captureDevice.IsRunning)
-        //{
-        //    captureDevice.Stop();
-        //}
+                using Stream sourceStream = await photo.OpenReadAsync();
+                using FileStream localFileStream = File.OpenWrite(localFilePath);
 
-        //BarcodeReader barcodeReader = new BarcodeReader();
-        //FileResult result = barcodeReader.Decode();
-        //if(result != null)
-        //{
-        //    txtQRCode.Text = result.ToString();
-        //}
+                await sourceStream.CopyToAsync(localFileStream);
+            }
+        }
     }
     /*
     public async void GoToDetails()
