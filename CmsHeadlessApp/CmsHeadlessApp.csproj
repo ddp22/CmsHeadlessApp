@@ -62,6 +62,9 @@
 	  <PackageReference Include="Xamarin.GooglePlayServices.Location">
 	    <Version>119.0.1.1</Version>
 	  </PackageReference>
+	  <PackageReference Include="Xamarin.Wikitude.SDK.JS">
+	    <Version>9.10.0</Version>
+	  </PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -70,6 +73,9 @@
 	  </Compile>
 	  <Compile Update="ContentDetails.xaml.cs">
 	    <DependentUpon>ContentDetails.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ArPage.xaml.cs">
+	    <DependentUpon>ArPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="ReaderPage.xaml.cs">
 	    <DependentUpon>ReaderPage.xaml</DependentUpon>
@@ -83,9 +89,18 @@
 	  <MauiXaml Update="ContentDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ArPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ReaderPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">
+	  <PackageReference Include="Xamarin.Wikitude.SDK.JS">
+	    <Version>9.10.0</Version>
+	  </PackageReference>
 	</ItemGroup>
 
 </Project>

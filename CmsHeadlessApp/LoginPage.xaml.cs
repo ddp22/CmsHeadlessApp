@@ -21,6 +21,11 @@ public partial class LoginPage : ContentPage
 		InitializeComponent();
     }
 
+    private async void OnArClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new ArPage());
+    }
+
     private async void OnLoginClicked(object sender, EventArgs e)
 	{
         var temp = await Geolocation.GetLocationAsync();
