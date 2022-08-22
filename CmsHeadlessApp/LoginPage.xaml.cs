@@ -51,7 +51,7 @@ public partial class LoginPage : ContentPage
         }
 
 		Root statusLogin = null;
-        Uri u = new Uri("https://localhost:7274/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
+        Uri u = new Uri("http://apicmsheadless.stgrca.local:8093/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
         
 		
         HttpResponseMessage response =await client.PostAsync(u, null);

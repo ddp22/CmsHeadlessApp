@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using ZXing.Net.Maui;
+
 //using static Android.Gms.Common.Apis.Api;
 
 namespace CmsHeadlessApp;
@@ -29,24 +31,20 @@ public partial class MainPage : ContentPage
         contentList=new List<ContentList>();
 
         this.GetContentList();
-
-        
-        
-        
     }
-    
-   /*private async void SetLocation()
-	{
-        var temp = await Geolocation.GetLocationAsync();
-        this.latitude = temp.Latitude;
-        this.longitude = temp.Longitude;
-        return;
-    }*/
-    
+
+    //private async void SetLocation()
+    //{
+    //    var temp = await Geolocation.GetLocationAsync();
+    //    this.latitude = temp.Latitude;
+    //    this.longitude = temp.Longitude;
+    //    return;
+    //}
+
     private async Task GetContentList()
     {
         token = await SecureStorage.Default.GetAsync("JwtToken");
-        string path = "https://localhost:7274/Content/GetContent?latitude=" + LoginPage.latitude.ToString().Replace(",", ".") + "&longitude=" + LoginPage.longitude.ToString().Replace(",", ".")+"&token="+token+"&mail="+LoginPage.mail;
+        string path = "http://apicmsheadless.stgrca.local:8093/Content/GetContent?latitude=" + LoginPage.latitude.ToString().Replace(",", ".") + "&longitude=" + LoginPage.longitude.ToString().Replace(",", ".")+"&token="+token+"&mail="+LoginPage.mail;
         HttpResponseMessage response = await client.GetAsync(path);
         if (response.IsSuccessStatusCode)
         {
@@ -73,40 +71,26 @@ public partial class MainPage : ContentPage
         await Navigation.PushModalAsync(new LoginPage());
     }
 
-    private async void OnReaderClicked(object sender, EventArgs e)
+    private async void OnQRScannerClicked(object sender, EventArgs e)
     {
-        if (MediaPicker.Default.IsCaptureSupported)
-        {
-            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
-
-            if (photo != null)
-            {
-                // save the file into local storage
-                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
-
-                using Stream sourceStream = await photo.OpenReadAsync();
-                using FileStream localFileStream = File.OpenWrite(localFilePath);
-
-                await sourceStream.CopyToAsync(localFileStream);
-            }
-        }
+        await Navigation.PushModalAsync(new QRScanner());
     }
-    /*
-    public async void GoToDetails()
-    {
-        await Navigation.PushModalAsync(new ContentDetails());
-    }
-    
-private void OnCounterClicked(object sender, EventArgs e)
-{
-   count++;
 
-   if (count == 1)
-       CounterBtn.Text = $"Clicked {count} time";
-   else
-       CounterBtn.Text = $"Clicked {count} times";
+    //public async void GoToDetails()
+    //{
+    //    await Navigation.PushModalAsync(new ContentDetails());
+    //}
 
-   SemanticScreenReader.Announce(CounterBtn.Text);
-}*/
+    //private void OnCounterClicked(object sender, EventArgs e)
+    //{
+    //    count++;
+
+    //    if (count == 1)
+    //        CounterBtn.Text = $"Clicked {count} time";
+    //    else
+    //        CounterBtn.Text = $"Clicked {count} times";
+
+    //    SemanticScreenReader.Announce(CounterBtn.Text);
+    //}
 }
 
