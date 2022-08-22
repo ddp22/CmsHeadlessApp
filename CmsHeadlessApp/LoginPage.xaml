@@ -78,6 +78,12 @@
                 Clicked="OnLoginClicked"
                 HorizontalOptions="Center" />
 
+            <Button
+                x:Name="ArButton"
+                Text="Ar"
+                Clicked="OnArClicked"
+                HorizontalOptions="Center" />
+
             <Label
                 x:Name="ErrorMessage"
                 TextColor="Red"
