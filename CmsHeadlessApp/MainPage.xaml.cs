@@ -44,7 +44,7 @@ public partial class MainPage : ContentPage
     private async Task GetContentList()
     {
         token = await SecureStorage.Default.GetAsync("JwtToken");
-        string path = "https://192.168.10.72:8094/Content/GetContent?latitude=" + LoginPage.latitude.ToString().Replace(",", ".") + "&longitude=" + LoginPage.longitude.ToString().Replace(",", ".")+"&token="+token+"&mail="+LoginPage.mail;
+        string path = "http://192.168.10.72:8093/Content/getContent?latitude=" + LoginPage.latitude.ToString().Replace(",", ".") + "&longitude=" + LoginPage.longitude.ToString().Replace(",", ".")+"&token="+token+"&mail="+LoginPage.mail;
         HttpResponseMessage response = await client.GetAsync(path);
         if (response.IsSuccessStatusCode)
         {

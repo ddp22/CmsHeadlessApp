@@ -23,7 +23,7 @@ public static class MauiProgram
                 h.AddHandler(typeof(ZXing.Net.Maui.Controls.CameraView), typeof(CameraViewHandler));
                 h.AddHandler(typeof(ZXing.Net.Maui.Controls.BarcodeGeneratorView), typeof(BarcodeGeneratorViewHandler));
             });
-        #endregion
-        return builder.Build();
+		#endregion
+		return builder.Build();
 	}
 }

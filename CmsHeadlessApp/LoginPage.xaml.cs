@@ -56,7 +56,7 @@ public partial class LoginPage : ContentPage
         }
 
 		Root statusLogin = null;
-        Uri u = new Uri("https://192.168.10.72:8094/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
+        Uri u = new Uri("http://192.168.10.72:8093/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
         
 		
         HttpResponseMessage response =await client.PostAsync(u, null);

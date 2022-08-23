@@ -15,8 +15,8 @@
         <Label
                 x:Name="barcodeResult"
                 Text="Result here"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
+                SemanticProperties.HeadingLevel="Level3"
+                FontSize="16"
                 HorizontalOptions="Center" />
     </VerticalStackLayout>
     
