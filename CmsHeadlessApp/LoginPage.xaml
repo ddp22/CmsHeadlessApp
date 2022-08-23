@@ -78,11 +78,11 @@
                 Clicked="OnLoginClicked"
                 HorizontalOptions="Center" />
 
-            <Button
+            <!--<Button
                 x:Name="ArButton"
                 Text="Ar"
                 Clicked="OnArClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" />-->
 
             <Label
                 x:Name="ErrorMessage"
