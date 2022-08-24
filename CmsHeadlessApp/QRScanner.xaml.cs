@@ -3,6 +3,7 @@ using CmsHeadlessApp.SupportedClass;
 using CmsHeadlessApp.View;
 using CmsHeadlessApp.ViewModel;
 using System.Net.Http.Json;
+using ZXing.Net.Maui;
 
 namespace CmsHeadlessApp;
 
@@ -31,7 +32,8 @@ public partial class QRScanner : ContentPage
                 {
                     return;
                 }
-                barcodeResult.BindingContext = new QrContentListViewModel(qrRoot);
+                this.BindingContext = new QrContentListViewModel(qrRoot);
+                var temp = this.BindingContext;
             }
             else
             {

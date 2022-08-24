@@ -1,23 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CmsHeadlessApp.ViewModel"
+             xmlns:model="clr-namespace:CmsHeadlessApp.SupportedClass"
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI"
+             x:DataType="viewModels:QrContentListViewModel"
              x:Class="CmsHeadlessApp.QRScanner"
              Title="QRScanner">
     
     <VerticalStackLayout>
         <zxing:CameraBarcodeReaderView x:Name="barcodeReader"
-                WidthRequest="300"
-                HeightRequest="300"
+                WidthRequest="200"
+                HeightRequest="200"
                 IsDetecting="True"
                 IsTorchOn="False"
                 BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
-        <Label
-                x:Name="barcodeResult"
-                Text="Result here"
-                SemanticProperties.HeadingLevel="Level3"
-                FontSize="16"
-                HorizontalOptions="Center" />
+
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemsSource="{Binding ContentList}" VerticalScrollBarVisibility="Always" ItemsUpdatingScrollMode="KeepItemsInView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:QrRoot">
+                        <StackLayout Padding="50">
+                            <Label Text="{Binding contentChild[0].title}" FontSize="Title"/>
+                            <Label Text="{Binding contentParent.title}" FontSize="Subtitle"/>
+                            <Label Text="{Binding contentChild[0].contentId}" FontSize="Caption"/>
+                            <Label Text="{Binding contentChild[0].description}" FontSize="Caption"/>
+                            <Label Text="{Binding contentChild[0].text}" FontSize="Caption"/>
+                            <Label Text="{Binding contentChild[0].user}" FontSize="Caption"/>
+                            <Label Text="{Binding contentChild[0].contentTag}" FontSize="Caption"/>
+                            <Line X1="10" Y1="10" X2="200" Y2="10" Stroke="Black" StrokeThickness="1"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:QrContentListViewModel}}, Path=SelectedContentCommand}" CommandParameter="{Binding .}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </VerticalStackLayout>
     
 </ContentPage>

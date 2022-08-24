@@ -30,7 +30,7 @@
                 FontAttributes="Bold"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnQRScannerClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Start"/>
             
             <Button
                 x:Name="logoutButton"
