@@ -8,27 +8,28 @@
              x:Class="CmsHeadlessApp.QRScanner"
              Title="QRScanner">
     
-    <VerticalStackLayout>
-        <zxing:CameraBarcodeReaderView x:Name="barcodeReader"
-                WidthRequest="200"
-                HeightRequest="200"
+    <VerticalStackLayout BackgroundColor="Transparent">
+        <zxing:CameraBarcodeReaderView
+                x:Name="barcodeReader"
+                WidthRequest="370"
+                HeightRequest="392.363"
                 IsDetecting="True"
                 IsTorchOn="False"
-                BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
-
+                BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected"/>
+        
         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
             <CollectionView ItemsSource="{Binding ContentList}" VerticalScrollBarVisibility="Always" ItemsUpdatingScrollMode="KeepItemsInView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:QrRoot">
-                        <StackLayout Padding="50">
-                            <Label Text="{Binding contentChild[0].title}" FontSize="Title"/>
+                        <StackLayout Padding="20" TranslationY="50" HorizontalOptions="Fill">
+                            <Label Text="{Binding contentChild[0].title}" FontSize="Title" FontAttributes="Bold"/>
                             <Label Text="{Binding contentParent.title}" FontSize="Subtitle"/>
                             <Label Text="{Binding contentChild[0].contentId}" FontSize="Caption"/>
                             <Label Text="{Binding contentChild[0].description}" FontSize="Caption"/>
                             <Label Text="{Binding contentChild[0].text}" FontSize="Caption"/>
                             <Label Text="{Binding contentChild[0].user}" FontSize="Caption"/>
                             <Label Text="{Binding contentChild[0].contentTag}" FontSize="Caption"/>
-                            <Line X1="10" Y1="10" X2="200" Y2="10" Stroke="Black" StrokeThickness="1"/>
+                            <Line X1="10" Y1="10" X2="200" Y2="10" Stroke="Black" StrokeThickness="2"/>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:QrContentListViewModel}}, Path=SelectedContentCommand}" CommandParameter="{Binding .}"/>
                             </StackLayout.GestureRecognizers>

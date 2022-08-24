@@ -23,24 +23,43 @@
             </BindableLayout.ItemTemplate>
 
         </StackLayout>-->
-
-        <StackLayout Padding="10">
-            <Button 
-                Text="Scan QR Code"
+        <HorizontalStackLayout>
+            <Label
+                Padding="5"
+                Text="Sautech Group"
+                TextColor="Black"
                 FontAttributes="Bold"
+                FontSize="Title"
+                SemanticProperties.Hint="Counts the number of times you click"
+                BackgroundColor="Transparent"/>
+            <Button
+                x:Name="scanButton"
+                Text="Scan QR Code |"
+                TextColor="Black"
+                FontAttributes="Bold"
+                TranslationY="5"
+                TranslationX="35"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnQRScannerClicked"
-                HorizontalOptions="Start"/>
-            
+                BackgroundColor="Transparent"/>
             <Button
                 x:Name="logoutButton"
                 Text="Logout"
+                TextColor="Black"
+                FontAttributes="Bold"
+                TranslationX="15"
+                TranslationY="5"
                 Clicked="OnLogoutClicked"
-                HorizontalOptions="End" />
-            
-            <Label Text="Contents" FontSize="Title"/>
-        </StackLayout>
-
+                BackgroundColor="Transparent"/>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout HorizontalOptions="Start" Padding="5">
+            <Label
+                Text="Contents"
+                FontSize="Subtitle"
+                FontAttributes="Bold"/>
+        </HorizontalStackLayout>
+        
         <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
             <CollectionView ItemsSource="{Binding ContentList}" VerticalScrollBarVisibility="Always" ItemsUpdatingScrollMode="KeepItemsInView">
                 <CollectionView.ItemTemplate>

@@ -19,13 +19,15 @@ public partial class LoginPage : ContentPage
     public LoginPage()
 	{
 		InitializeComponent();
-        email.Text = "domypio001@gmail.com";
-        password.Text = "Sautech15!";
     }
 
-    private async void OnArClicked(object sender, EventArgs e)
+    //private async void OnArClicked(object sender, EventArgs e)
+    //{
+    //    await Navigation.PushModalAsync(new ArPage());
+    //}
+    private void OnCheckedChanged(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new ArPage());
+        password.IsPassword = !password.IsPassword;
     }
 
     private async void OnLoginClicked(object sender, EventArgs e)
@@ -58,8 +60,8 @@ public partial class LoginPage : ContentPage
         }
 
 		Root statusLogin = null;
-        //Uri u = new Uri("http://192.168.10.72:8093/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
-        Uri u = new Uri("https://localhost:7274/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
+        Uri u = new Uri("http://192.168.10.72:8093/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
+        //Uri u = new Uri("https://localhost:7274/User/LoginUser?mail=" + email.Text + "&password=" + password.Text);
 
         HttpResponseMessage response =await client.PostAsync(u, null);
         if (response.IsSuccessStatusCode)

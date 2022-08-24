@@ -7,12 +7,7 @@
             Spacing="15"
             Padding="30,0"
             VerticalOptions="Center">
-            <Button
-            x:Name="ReturnButton"
-            Text="Contents"
-            Clicked="OnReturnClicked"
-            HorizontalOptions="End" />
-
+            
             <Label x:Name="TitleLabel" Text="" FontSize="40" HorizontalTextAlignment="Center"/>
             <Label x:Name="DescriptionText" Text="Description: " FontSize="Medium"/>
             <Label x:Name="DescriptionLabel" Text="" FontSize="Default"/>
@@ -28,6 +23,18 @@
             <Image x:Name="MediaLabel" Source="" SemanticProperties.Description="Image not Available!" HeightRequest="200" HorizontalOptions="Start"/>
             <Label x:Name="EmailText" Text="Author: " FontSize="Medium"/>
             <Label x:Name="EmailLabel" Text="" FontSize="Default" />
+
+            <Button
+                x:Name="ReturnButton"
+                Text="Back to Contents"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="Subtitle"
+                Clicked="OnReturnClicked"
+                HorizontalOptions="End"
+                BackgroundColor="Transparent"
+            />
+            
         </VerticalStackLayout>
     </ScrollView>
     

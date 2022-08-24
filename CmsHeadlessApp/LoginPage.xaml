@@ -9,34 +9,29 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <!--<Image
-                Source="dotnet_bot.png"
+            <Image
+                Source="sautech_logo.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
+            <!--<Label
                 Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.HeadingLevel="Level1"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />-->
 
             <Label
-                Text="Login"
+                Text="Welcome - Sign In"
                 FontSize="Title"
                 HorizontalOptions="Center"
+                FontAttributes="Bold"
                 />
 
             <Label
                 x:Name="MissingEmail"
-                Text="Enter an email!!!"
+                Text="Email missing"
                 TextColor="Red"
                 FontSize="Micro"
                 IsVisible="false"
@@ -45,7 +40,7 @@
 
             <Label
                 x:Name="MissingPassword"
-                Text="Enter an password!!!"
+                Text="Password missing"
                 TextColor="Red"
                 FontSize="Micro"
                 IsVisible="false"
@@ -54,29 +49,46 @@
 
             <Entry
                 x:Name="email"
-                Placeholder="Enter email"
+                Placeholder="Email"
+                Text="f.sarno14@studenti.unisa.it"
                 FontSize="Medium"
                 MaximumWidthRequest="300"
                 />
 
-            
-            
-            <Entry
-                x:Name="password"
-                Placeholder="Enter password"
-                FontSize="Medium"
-                MaximumWidthRequest="300"
-                IsPassword="True" 
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="password"
+                    Placeholder="Password"
+                    Text="Sautech15!"
+                    FontSize="Medium"
+                    MaximumWidthRequest="300"
+                    IsPassword="True"
+                    HorizontalTextAlignment="Start"
                 />
 
-            
+                <CheckBox
+                    x:Name="passwordVisible"
+                    IsChecked="False"
+                    CheckedChanged="OnCheckedChanged"
+                    TranslationX="200"
+                />
+            </HorizontalStackLayout>
+
+            <!--<VerticalStackLayout TranslationY="-65">
+                <CheckBox
+                        x:Name="passwordVisible"
+                        IsChecked="False"
+                        CheckedChanged="OnCheckedChanged"
+                        TranslationX="160"/>
+            </VerticalStackLayout>-->
 
             <Button
                 x:Name="loginButton"
-                Text="Login"
+                Text="Log In"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnLoginClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                FontAttributes="Bold"/>
 
             <!--<Button
                 x:Name="ArButton"
@@ -94,28 +106,12 @@
 
             <Label
                 x:Name="CorrectEmailPassword"
-                Text="Correct Email or Password!!!"
+                Text="Correct Email and Password"
                 TextColor="Green"
                 FontSize="Micro"
                 IsVisible="false"
                 HorizontalOptions="Center"
                 />
-            <!--<Entry 
-                x:Name="email"
-                Placeholder="Enter email"
-                ="OnTextChanged"
-                Completed="OnTextCompleted"/>
-
-            <Entry 
-                x:Name="password"
-                Placeholder="Enter password"/> 
-
-                <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />-->
 
         </VerticalStackLayout>
     </ScrollView>
